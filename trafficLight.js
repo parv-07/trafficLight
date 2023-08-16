@@ -9,15 +9,19 @@ class TrafficLight {
     this.break = false;
   }
 
-  get light() {
-    console.log(this.light);
-    return this.currlight;
+  get getLight() {
+    return console.log(`The light is ${this.light.toUpperCase()}`);
   }
   /**
    * @param {string} light
    */
-  set light(light) {
+  set setLight(light) {
     this.light = light;
+  }
+  defaultAnswer() {
+    console.log(
+      `cannot turn into this because the light is ${this.light.toUpperCase()} now`
+    );
   }
 
   startTrafficLight() {
@@ -25,6 +29,7 @@ class TrafficLight {
       this.start = true;
       // this.light = 'red';
       console.log('The TrafficLight is started.....');
+      // this.getLight();
       // console.log(this.light);
     } else {
       this.start = false;
@@ -40,11 +45,10 @@ class TrafficLight {
     }
     if (this.start) {
       this.light = 'red';
-      console.log(`The light is ${this.light.toUpperCase()}`);
+      // setLight('red');
+      this.getLight;
     } else {
-      console.log(
-        `cannot turn into this because the light is ${this.light.toUpperCase()} now`
-      );
+      this.defaultAnswer;
     }
   }
   goTl() {
@@ -56,7 +60,7 @@ class TrafficLight {
     }
     if (this.light === 'red') {
       this.light = 'green';
-      console.log(`The light is ${this.light.toUpperCase()}`);
+      this.getLight;
     } else {
       console.log(
         `cannot turn into this because the light is ${this.light.toUpperCase()} now`
@@ -73,9 +77,7 @@ class TrafficLight {
     }
     if (this.light === 'green') {
       this.light = 'yellow';
-      console.log(
-        `Please be slow.The light is turned ${this.light.toUpperCase()}`
-      );
+      this.getLight;
     } else {
       console.log(
         `cannot turn into this because the light is ${this.light.toUpperCase()} now`
