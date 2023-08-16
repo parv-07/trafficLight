@@ -24,6 +24,15 @@ class TrafficLight {
     );
   }
 
+  checkStart() {
+    if (!this.start) {
+      console.log('please start.....');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   startTrafficLight() {
     if (this.light === 'off') {
       this.start = true;
@@ -37,24 +46,23 @@ class TrafficLight {
     }
   }
   stop() {
-    if (!this.start) {
-      return console.log('please start.....');
-    }
+    if (this.checkStart()) return;
     if (this.break) {
       return console.log('The light is under maintaince');
+    }
+    if (this.light.toLowerCase() === 'green') {
+      return this.defaultAnswer();
     }
     if (this.start) {
       this.light = 'red';
       // setLight('red');
       this.getLight;
     } else {
-      this.defaultAnswer;
+      this.defaultAnswer();
     }
   }
   goTl() {
-    if (!this.start) {
-      return console.log('please start');
-    }
+    if (this.checkStart()) return;
     if (this.break) {
       return console.log('The TrafficLIght is under Maintaince');
     }
@@ -62,16 +70,15 @@ class TrafficLight {
       this.light = 'green';
       this.getLight;
     } else {
-      console.log(
-        `cannot turn into this because the light is ${this.light.toUpperCase()} now`
-      );
+      // console.log(
+      //   `cannot turn into this because the light is ${this.light.toUpperCase()} now`
+      // );
       //console.log(this.light);
+      this.defaultAnswer();
     }
   }
   slowTl() {
-    if (!this.start) {
-      return console.log('please start....');
-    }
+    if (this.checkStart()) return;
     if (this.break) {
       return console.log('The trafficLight is under maintaince ');
     }
@@ -79,15 +86,14 @@ class TrafficLight {
       this.light = 'yellow';
       this.getLight;
     } else {
-      console.log(
-        `cannot turn into this because the light is ${this.light.toUpperCase()} now`
-      );
+      // console.log(
+      //   `cannot turn into this because the light is ${this.light.toUpperCase()} now`
+      // );
+      this.defaultAnswer();
     }
   }
   tBreak() {
-    if (!this.start) {
-      return console.log('please start the TrafficLight');
-    }
+    if (this.checkStart()) return;
     if (this.break) {
       this.break = false;
     } else {
